@@ -8,6 +8,7 @@ export const nav: NavGroup[] = [
     items: [
       { label: "Color · Base", href: "/foundations/color/base" },
       { label: "Color · Semantic", href: "/foundations/color/semantic" },
+      { label: "Color · Component", href: "/foundations/color/component" },
       { label: "Typography", href: "/foundations/typography" },
       { label: "Spacing & Size", href: "/foundations/spacing" },
       { label: "Radius & Border", href: "/foundations/radius" },

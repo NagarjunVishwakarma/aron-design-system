@@ -56,6 +56,33 @@ export function ColorSemanticView() {
   );
 }
 
+/* ---------- Color: component ---------- */
+export function ColorComponentView() {
+  const list = byTier("component").filter((t) => t.kind === "color");
+  const sections = groupBy(list, (t) => t.name.split("/").slice(0, -1).join(" / "));
+  return (
+    <div className="d-stack">
+      {sections.map(([group, ts]) => (
+        <section key={group}>
+          <h3 className="d-h3">{group}</h3>
+          <div className="d-cards">
+            {ts.map((t) => (
+              <div key={t.cssVar} className="d-card">
+                <div className="d-card__color" style={{ background: String(t.value) }} />
+                <div className="d-card__body">
+                  <strong>{t.name.split("/").pop()}</strong>
+                  <code>{t.cssVar}</code>
+                  <span className="d-muted">{t.aliasName ? `→ ${t.aliasName.replace(/^color\//, "")}` : ""} · {String(t.value)}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+      ))}
+    </div>
+  );
+}
+
 /* ---------- Typography ---------- */
 function TypeList({ styles }: { styles: TypeStyle[] }) {
   return (
