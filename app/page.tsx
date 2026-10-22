@@ -20,8 +20,8 @@ export default function Home() {
           <h1 className="d-hero__title">Aron Design System</h1>
           <p className="d-hero__lead">One source of truth for colour, type, spacing and components — designed in Figma, shipped as code.</p>
           <div className="d-hero__actions">
-            <Link href="/components/button"><Button>Browse components</Button></Link>
-            <a href="/storybook/" target="_blank" rel="noopener noreferrer"><Button variant="primary-outline">Open Storybook</Button></a>
+            <Link className="ar-btn" data-variant="primary" data-size="default" href="/components/button"><span className="ar-btn__label">Browse components</span></Link>
+            <a className="ar-btn" data-variant="primary-outline" data-size="default" href="/storybook/" target="_blank" rel="noopener noreferrer"><span className="ar-btn__label">Open Storybook</span></a>
           </div>
         </div>
 
