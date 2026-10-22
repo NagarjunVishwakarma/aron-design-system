@@ -3,6 +3,23 @@ import { Icon, iconNames } from "@/components/ui";
 import { byTier, displayValue, groupBy, isDark, tokens, Token } from "@/lib/tokens";
 import { grids, mobileType, TypeStyle, webType, weightValue } from "@/lib/foundations";
 import { TokenTable } from "./TokenTable";
+import { CopyVar } from "./CopyVar";
+
+/** Shared text block under a swatch: name, one meta row (what it points at + value), then the CSS variable. */
+function CardBody({ name, left, right, cssVar }: { name: string; left?: string; right?: string; cssVar: string }) {
+  return (
+    <div className="d-card__body">
+      <strong className="d-card__name">{name}</strong>
+      {left || right ? (
+        <div className={left ? "d-card__meta" : "d-card__meta d-card__meta--solo"}>
+          {left ? <span className="d-card__alias">{left}</span> : null}
+          <span className="d-card__value">{right}</span>
+        </div>
+      ) : null}
+      <CopyVar value={cssVar} />
+    </div>
+  );
+}
 
 /* ---------- Color: base ---------- */
 export function ColorBaseView() {
@@ -42,11 +59,7 @@ export function ColorSemanticView() {
             {list.map((t) => (
               <div key={t.cssVar} className="d-card">
                 <div className="d-card__color" style={{ background: String(t.value) }} />
-                <div className="d-card__body">
-                  <strong>{t.name.replace(/^color\//, "")}</strong>
-                  <code>{t.cssVar}</code>
-                  <span className="d-muted">{t.aliasName ? `→ ${t.aliasName.replace("Color/", "")}` : ""} · {String(t.value)}</span>
-                </div>
+                <CardBody name={t.name.replace(/^color\//, "")} left={t.aliasName ? t.aliasName.replace("Color/", "") : undefined} right={String(t.value)} cssVar={t.cssVar} />
               </div>
             ))}
           </div>
@@ -69,11 +82,7 @@ export function ColorComponentView() {
             {ts.map((t) => (
               <div key={t.cssVar} className="d-card">
                 <div className="d-card__color" style={{ background: String(t.value) }} />
-                <div className="d-card__body">
-                  <strong>{t.name.split("/").pop()}</strong>
-                  <code>{t.cssVar}</code>
-                  <span className="d-muted">{t.aliasName ? `→ ${t.aliasName.replace(/^color\//, "")}` : ""} · {String(t.value)}</span>
-                </div>
+                <CardBody name={t.name.split("/").pop() || t.name} left={t.aliasName ? t.aliasName.replace(/^color\//, "") : undefined} right={String(t.value)} cssVar={t.cssVar} />
               </div>
             ))}
           </div>
@@ -161,7 +170,7 @@ export function RadiusView() {
           <div className="d-card__color" style={{ display: "grid", placeItems: "center", background: "var(--base-color-grey-50)" }}>
             <span style={{ width: 72, height: 72, background: "var(--base-color-violet-500)", borderRadius: Number(t.value) > 36 ? 36 : Number(t.value) }} />
           </div>
-          <div className="d-card__body"><strong>{t.name}</strong><code>{t.cssVar}</code><span className="d-muted">{displayValue(t)}</span></div>
+          <CardBody name={t.name} right={displayValue(t)} cssVar={t.cssVar} />
         </div>
       ))}
     </div>
@@ -176,7 +185,7 @@ export function BorderView() {
           <div className="d-card__color" style={{ display: "grid", placeItems: "center", background: "var(--base-color-grey-50)" }}>
             <span style={{ width: 96, height: 56, border: `${t.value}px solid var(--base-color-violet-500)`, borderRadius: 8, background: "#fff" }} />
           </div>
-          <div className="d-card__body"><strong>{t.name}</strong><code>{t.cssVar}</code><span className="d-muted">{displayValue(t)}</span></div>
+          <CardBody name={t.name} right={displayValue(t)} cssVar={t.cssVar} />
         </div>
       ))}
     </div>

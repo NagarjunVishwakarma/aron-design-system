@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { registry } from "@/lib/registry";
-import { counts, find } from "@/lib/tokens";
+import { counts } from "@/lib/tokens";
 import { Button, Input, Tag, Avatar, Alert, Toggle } from "@/components/ui";
 
 export default function Home() {
@@ -11,8 +11,6 @@ export default function Home() {
     { href: "/tokens/overview", t: "Tokens", d: `${total} tokens in three tiers: base → semantic → component.` },
     { href: "/storybook/", t: "Storybook", d: "The same components in isolation, with controls and accessibility checks.", external: true },
   ];
-  // One real colour followed through all three tiers (values are read from the generated token data).
-  const violet = String(find("--base-color-violet-500")?.value ?? "#8224e0");
 
   return (
     <>
@@ -64,7 +62,6 @@ export default function Home() {
           <div className="d-chain__step">
             <p className="d-chain__tier">1 · Base</p>
             <p className="d-chain__count">{counts.base} tokens · the raw value</p>
-            <div className="d-chain__visual"><div className="d-chain__swatch" style={{ background: violet }} /></div>
             <p className="d-chain__desc">Every colour ramp, number and font. Never used directly in components.</p>
             <code>--base-color-violet-500</code>
           </div>
@@ -72,7 +69,6 @@ export default function Home() {
           <div className="d-chain__step">
             <p className="d-chain__tier">2 · Semantic</p>
             <p className="d-chain__count">{counts.semantic} tokens · the meaning</p>
-            <div className="d-chain__visual"><div className="d-chain__swatch" style={{ background: "var(--color-surface-brand-strong)" }} /></div>
             <p className="d-chain__desc">Says what the colour is for: here, the strong brand surface.</p>
             <code>--color-surface-brand-strong</code>
           </div>
@@ -80,7 +76,6 @@ export default function Home() {
           <div className="d-chain__step">
             <p className="d-chain__tier">3 · Component</p>
             <p className="d-chain__count">{counts.component} tokens · the use</p>
-            <div className="d-chain__visual"><Button>Create</Button></div>
             <p className="d-chain__desc">Per component and per state, like the primary button&apos;s default fill.</p>
             <code>--button-primary-default-bg</code>
           </div>
