@@ -1,0 +1,30 @@
+{
+  "name": "aron-design-system",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "tokens": "node scripts/build-tokens.mjs",
+    "dev": "npm run tokens && next dev",
+    "storybook": "npm run tokens && storybook dev -p 6006",
+    "build:storybook": "storybook build -o public/storybook --quiet",
+    "build": "npm run tokens && npm run build:storybook && next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "next": "14.2.15",
+    "react": "18.3.1",
+    "react-dom": "18.3.1"
+  },
+  "devDependencies": {
+    "@storybook/addon-a11y": "^8.4.7",
+    "@storybook/addon-essentials": "^8.4.7",
+    "@storybook/addon-webpack5-compiler-swc": "^2.0.0",
+    "@storybook/react": "^8.4.7",
+    "@storybook/react-webpack5": "^8.4.7",
+    "@types/node": "^20.14.0",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "storybook": "^8.4.7",
+    "typescript": "^5.5.4"
+  }
+}
