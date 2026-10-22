@@ -1,0 +1,6 @@
+node_modules
+.next
+public/storybook
+storybook-static
+*.tsbuildinfo
+.vercel
