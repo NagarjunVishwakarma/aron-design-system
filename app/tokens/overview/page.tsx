@@ -19,8 +19,8 @@ export default function Page() {
       <section className="d-section">
         <h2 className="d-h2">How to use them</h2>
         <pre className="d-code"><code>{`.my-card {
-  background: var(--color-surface-neutral-2-subtle);
-  border: var(--border-size-1) solid var(--color-border-neutral-3-solid);
+  background: var(--color-surface-default);
+  border: var(--border-size-1) solid var(--color-border-soft);
   border-radius: var(--corner-radius-8);
   padding: var(--space-16);
 }`}</code></pre>
