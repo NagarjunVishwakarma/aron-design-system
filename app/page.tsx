@@ -21,7 +21,7 @@ export default function Home() {
           <p className="d-hero__lead">One source of truth for colour, type, spacing and components — designed in Figma, shipped as code.</p>
           <div className="d-hero__actions">
             <Link href="/components/button"><Button>Browse components</Button></Link>
-            <a href="/storybook/"><Button variant="primary-outline">Open Storybook</Button></a>
+            <a href="/storybook/" target="_blank" rel="noopener noreferrer"><Button variant="primary-outline">Open Storybook</Button></a>
           </div>
         </div>
 
@@ -48,7 +48,7 @@ export default function Home() {
 
       <div className="d-cards d-cards--4">
         {cards.map((c) => (
-          <a key={c.href} href={c.href} className="d-linkcard">
+          <a key={c.href} href={c.href} className="d-linkcard" {...(c.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}>
             <strong>{c.t}{c.external ? " ↗" : ""}</strong>
             <span>{c.d}</span>
           </a>

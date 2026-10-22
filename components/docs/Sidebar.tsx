@@ -33,7 +33,7 @@ export function Sidebar() {
           ))}
           <div className="d-navgroup">
             <p className="d-navtitle">Storybook</p>
-            <ul><li><a className="d-navlink" href="/storybook/">Open Storybook ↗</a></li></ul>
+            <ul><li><a className="d-navlink" href="/storybook/" target="_blank" rel="noopener noreferrer">Open Storybook ↗</a></li></ul>
           </div>
         </nav>
       </aside>
