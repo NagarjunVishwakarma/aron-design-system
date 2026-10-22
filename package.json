@@ -5,8 +5,8 @@
   "scripts": {
     "tokens": "node scripts/build-tokens.mjs",
     "dev": "npm run tokens && next dev",
-    "storybook": "npm run tokens && storybook dev -p 6006",
-    "build:storybook": "storybook build -o public/storybook --quiet",
+    "storybook": "npm run tokens && storybook dev -p 6006 -c storybook-config",
+    "build:storybook": "storybook build -c storybook-config -o public/storybook --quiet",
     "build": "npm run tokens && npm run build:storybook && next build",
     "start": "next start"
   },
