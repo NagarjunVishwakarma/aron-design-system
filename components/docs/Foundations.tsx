@@ -115,7 +115,7 @@ export function TypographyView({ platform }: { platform?: "web" | "mobile" }) {
       <section>
         <h3 className="d-h3">Typeface</h3>
         <p className="d-lead" style={{ fontSize: 28, fontWeight: 600 }}>Inter</p>
-        <p className="d-muted">Weights: Regular 400 · Medium 500 · Semi-bold 600 (Bold 700 for Mobile Label 3). Token: <code>--base-font-family-primary</code></p>
+        <p className="d-muted">Weights: Regular 400 · Medium 500 · Semi-bold 600 (Bold 700 for Mobile Label 3). Token: <code>--base-font-font-family-primary</code></p>
       </section>
       {platform !== "mobile" ? <section><h3 className="d-h3">Web</h3><TypeList styles={webType} /></section> : null}
       {platform !== "web" ? <section><h3 className="d-h3">Mobile</h3><TypeList styles={mobileType} /></section> : null}

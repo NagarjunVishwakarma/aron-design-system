@@ -4,7 +4,7 @@
 
 .ar-btn, .ar-field, .ar-check, .ar-radio, .ar-toggle, .ar-tag, .ar-badge, .ar-avatar,
 .ar-alert, .ar-tooltip {
-  font-family: var(--base-font-family-primary), Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-family: var(--base-font-font-family-primary, "Inter"), Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
   box-sizing: border-box;
 }
 .ar-btn *, .ar-field *, .ar-check *, .ar-radio *, .ar-toggle *, .ar-tag *, .ar-alert *, .ar-tooltip * { box-sizing: border-box; }
